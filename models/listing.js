@@ -13,7 +13,7 @@ const listingSchema=new mongoose.Schema({
     // Title of the listing - required field
     title:{
         type:String,
-        requirement:true // Typo: should be 'required'
+        required:true // Typo: should be 'required'
     },
     // Description of the listing - optional field
     description:{

@@ -18,7 +18,7 @@ const reviewSchema = new Schema({
     // Date and time when the review was created
     createAt:{
         type :Date,
-        bydefault:Date.now // Automatically set the current date/time when a review is created
+        default:Date.now // Automatically set the current date/time when a review is created
     },
     author:{
         type:Schema.Types.ObjectId,

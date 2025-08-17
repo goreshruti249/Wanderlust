@@ -10,7 +10,7 @@ module.exports.createReview = async(req,res) =>{
     newReview.author = res.locals.currUser._id;
     
      // Add the new review's ObjectId to the listing's reviews array
-    listing.reviews.push(newReview);
+    listing.reviews.push(newReview._id);
     
 
     // Save the new review to the 'reviews' collection
