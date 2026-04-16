@@ -30,7 +30,7 @@ main().then(()=>{
 }).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/Wanderlust');
+  await mongoose.connect(process.env.ATLASDB_URL);
 }
 
 //for view template access
@@ -105,7 +105,9 @@ app.use((req,res,next)=>{
 // });
 
 
-
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",usersRouter);
@@ -127,6 +129,8 @@ app.use("/",usersRouter);
 
 
 //Activate  port
-app.listen(8080,()=>{
-    console.log("Server is listening on port 8080");
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });
